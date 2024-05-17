@@ -9,7 +9,7 @@ const Page = async ({ params }) => {
   return (
     <div className="relative h-screen w-screen">
       <Suspense fallback={<Loading />}>
-        <Products category={category} />;
+        <Products category={category} />
       </Suspense>
     </div>
   );

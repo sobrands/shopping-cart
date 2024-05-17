@@ -5,10 +5,14 @@ export async function getCategories() {
   return res.json();
 }
 
+export async function getProducts() {
+  const res = await fetch("https://fakestoreapi.com/products");
+  return res.json();
+}
+
 export async function getProductsInCategory(category) {
   const res = await fetch(
     `https://fakestoreapi.com/products/category/${category}`,
-    { cache: "no-store" },
   );
   return res.json();
 }
