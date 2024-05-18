@@ -10,7 +10,10 @@ const Products = async ({ category }) => {
       : await getProductsInCategory(category);
   console.log(products);
   return (
-    <div className="flex flex-wrap">
+    <div
+      className="grid grid-cols-2 md:grid-cols-3 px-6 pb-10 gap-3
+      max-w-6xl"
+    >
       {products.map((product) => (
         <div key={product.id}>
           <ProductCard
