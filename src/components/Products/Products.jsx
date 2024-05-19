@@ -15,12 +15,7 @@ const Products = async ({ category }) => {
     >
       {products.map((product) => (
         <div key={product.id}>
-          <ProductCard
-            id={product.id}
-            title={product.title}
-            price={product.price}
-            imgSrc={product.image}
-          />
+          <ProductCard product={product} />
         </div>
       ))}
     </div>

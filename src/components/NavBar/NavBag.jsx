@@ -41,7 +41,7 @@ const NavBag = () => {
           </div>
         </TooltipTrigger>
         <TooltipContent align="end">
-          <div className="flex flex-col px-6 py-3 w-[450px]">
+          <div className="flex flex-col px-6 py-3 w-[300px] md:w-[450px]">
             <h1 className="text-lg font-bold">Shopping Bag</h1>
             {cartItems.length > 0 ? (
               <div>
@@ -52,33 +52,39 @@ const NavBag = () => {
                       key={item.id}
                       className="flex items-center justify-between"
                     >
-                      <div
-                        className="border rounded-xl border-gray-400
+                      <div className="flex items-center gap-5">
+                        <div
+                          className="border rounded-xl border-gray-400
                       flex justify-center items-center aspect-square p-5"
-                      >
-                        <div>
-                          <Link href={`/store/product/${item.id}`}>
-                            <Image
-                              src={item.img}
-                              height={50}
-                              width={50}
-                              alt="Product image"
-                            ></Image>
-                          </Link>
+                        >
+                          <div>
+                            <Link href={`/store/product/${item.id}`}>
+                              <Image
+                                src={item.img}
+                                height={50}
+                                width={50}
+                                alt="Product image"
+                              ></Image>
+                            </Link>
+                          </div>
+                        </div>
+                        <div className="w-1/2">
+                          <p className="font-semibold">{item.name}</p>
+                          <p>Qty: {item.quantity}</p>
                         </div>
                       </div>
-                      <div className="w-1/2">
-                        <p className="font-semibold">{item.name}</p>
-                        <p>Qty: {item.quantity}</p>
+                      <div className="flex flex-col items-end">
+                        <Button
+                          variant="ghost"
+                          className="p-2"
+                          onClick={() => handleDelete(item)}
+                        >
+                          <FaTrash className="text-lg" />
+                        </Button>
+                        <p className="font-bold">
+                          ${item.quantity * item.price}
+                        </p>
                       </div>
-                      <Button
-                        variant="ghost"
-                        className="p-2"
-                        onClick={() => handleDelete(item)}
-                      >
-                        <FaTrash className="text-lg" />
-                      </Button>
-                      <p className="font-bold">${item.quantity * item.price}</p>
                     </div>
                   ))}
                 </div>

@@ -95,7 +95,7 @@ const Page = () => {
                     </Button>
                   </div>
                 </div>
-                <div className="flex items-center gap-10">
+                <div className="flex flex-col items-end md:flex-row md:items-center gap-10">
                   <Button
                     variant="ghost"
                     className="p-2"
