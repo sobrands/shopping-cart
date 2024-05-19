@@ -8,7 +8,6 @@ const Products = async ({ category }) => {
     category === undefined
       ? await getProducts()
       : await getProductsInCategory(category);
-  console.log(products);
   return (
     <div
       className="grid grid-cols-2 lg:grid-cols-3 px-6 pb-10 gap-3
@@ -17,6 +16,7 @@ const Products = async ({ category }) => {
       {products.map((product) => (
         <div key={product.id}>
           <ProductCard
+            id={product.id}
             title={product.title}
             price={product.price}
             imgSrc={product.image}

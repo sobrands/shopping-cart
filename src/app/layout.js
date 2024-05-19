@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import "./globals.css";
 
 import NavBar from "@/components/NavBar/NavBar";
+import { CartContextProvider } from "@/context/CartContext";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -23,8 +24,10 @@ export default function RootLayout({ children }) {
           inter.variable,
         )}
       >
-        <NavBar />
-        {children}
+        <CartContextProvider>
+          <NavBar />
+          {children}
+        </CartContextProvider>
       </body>
     </html>
   );
