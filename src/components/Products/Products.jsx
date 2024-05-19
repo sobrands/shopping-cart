@@ -11,7 +11,7 @@ const Products = async ({ category }) => {
   console.log(products);
   return (
     <div
-      className="grid grid-cols-2 md:grid-cols-3 px-6 pb-10 gap-3
+      className="grid grid-cols-2 lg:grid-cols-3 px-6 pb-10 gap-3
       max-w-6xl"
     >
       {products.map((product) => (

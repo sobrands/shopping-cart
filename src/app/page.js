@@ -14,7 +14,7 @@ export default async function Home() {
       <Button variant="outline" asChild>
         <Link href="/store">Shop Now</Link>
       </Button>
-      <div className="flex gap-6">
+      <div className="hidden md:flex md:gap-6">
         {categories.map((category, index) => (
           <Button variant="link" key={index} className="p-6" asChild>
             <Link href={`/store/${category}`}>

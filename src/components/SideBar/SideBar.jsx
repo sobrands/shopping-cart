@@ -15,7 +15,7 @@ const SideBar = () => {
   }
 
   return (
-    <div className="flex flex-col gap-6 px-8">
+    <div className="hidden md:flex flex-col gap-6 px-8">
       <Link
         onClick={toggleOpen}
         className="text-xl font-semibold"
