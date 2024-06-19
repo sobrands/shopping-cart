@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useContext } from "react";
+import React, { useContext, useMemo } from "react";
 
 import { CartContext } from "@/context/CartContext";
 import { MdOutlineShoppingBag } from "react-icons/md";
@@ -18,6 +18,12 @@ import { Button } from "../ui/button";
 
 const NavBag = () => {
   const { cartItems, setCartItems } = useContext(CartContext);
+  const totalPrice = useMemo(() => {
+    return cartItems.reduce(
+      (initialVal, item) => initialVal + item.price * item.quantity,
+      0,
+    );
+  }, [cartItems]);
 
   function handleDelete(deleteItem) {
     const array = [...cartItems];
@@ -90,15 +96,7 @@ const NavBag = () => {
                 </div>
                 <Separator className="my-4" />
                 <p className="my-4 text-xl font-semibold">
-                  Total:{" "}
-                  <span className="font-normal">
-                    $
-                    {cartItems.reduce(
-                      (initialVal, item) =>
-                        initialVal + item.price * item.quantity,
-                      0,
-                    )}
-                  </span>
+                  Total: <span className="font-normal">${totalPrice}</span>
                 </p>
                 <div className="flex flex-col gap-3">
                   <Button
